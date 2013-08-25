@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('gazApp', [])
+angular.module('gazApp', ['ngRoute'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
