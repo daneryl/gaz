@@ -1,9 +1,25 @@
-<div class="hero-unit">
-  <h1>'Allo, 'Allo!</h1>
-  <p>You now have</p>
-  <ul>
-      <li ng-repeat="thing in awesomeThings">{{thing}}</li>
-  </ul>
-  <p>installed.</p>
-  <h3>Enjoy coding! - Yeoman</h3>
+<div class="alert" ng-class="error ? 'alert-danger' : 'alert-success'">
+  La fecha debe tener el siguiente formato dd/mm/yyyy y opcionalmente la hora dd/mm/yyyy hh:mm:ss 
 </div>
+
+<div class="jumbotron">
+  <form class="form-inline" ng-submit='generate()'>
+    <div class='form-group'>
+      <input ng-model='date'>
+    </div>
+    <div class='form-group'>
+      <input ng-model='degrees'>
+    </div>
+    <button type="submit" class="btn btn-success">Generar</button>
+  </form>
+</div>
+
+<div class="row marketing">
+	<textarea>{{log}}</textarea>
+</div>
+
+<div class="footer">
+  <p>&copy; Gaz 2013</p>
+</div>
+
+

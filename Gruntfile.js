@@ -28,6 +28,17 @@ module.exports = function (grunt) {
 
   grunt.initConfig({
     yeoman: yeomanConfig,
+    jslinker: {
+      default: {
+        options: {
+          target: 'app/index.html',
+          start_tag: '<!-- build:js scripts/scripts.js -->',
+          end_tag: '<!-- endbuild -->',
+          relative_to: 'app/',
+        },
+        src: ['app/scripts/**/**.js', 'app/scripts/*.js']
+      }
+    },
     watch: {
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -289,6 +300,7 @@ module.exports = function (grunt) {
     }
 
     grunt.task.run([
+      'jslinker:default',
       'clean:server',
       'concurrent:server',
       'connect:livereload',
@@ -305,6 +317,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('build', [
+    'jslinker:default',
     'clean:dist',
     'useminPrepare',
     'concurrent:dist',
