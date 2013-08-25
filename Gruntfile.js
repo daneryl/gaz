@@ -133,17 +133,10 @@ module.exports = function (grunt) {
           files: [{
             expand: true,
             cwd: '<%= yeoman.app %>/styles',
-            src: '{,*/}*.less',
+            src: 'main.less',
             dest: '<%= yeoman.app %>/styles/',
             ext: '.css'
-          },{
-            expand: true,
-            cwd: '<%= yeoman.app %>/components/bootstrap/less',
-            src: 'bootstrap.less',
-            dest: '<%= yeoman.app %>/styles/',
-            ext: '.css'
-          }
-          ]
+          }]
         }
       },
     // not used since Uglify task does concat,
