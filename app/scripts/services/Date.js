@@ -1,8 +1,6 @@
 'use strict';
 
 angular.module('gazApp').factory('Date', function() {
-	// Service logic
-	// ...
 
 	var date = new XDate();
 
@@ -21,7 +19,6 @@ angular.module('gazApp').factory('Date', function() {
 		return result;
 	};
 
-	// Public API here
 	return {
 		generate_interval: function(formatted_date) {
 
@@ -36,8 +33,7 @@ angular.module('gazApp').factory('Date', function() {
 
 		},
 
-		now: function()
-		{
+		now: function() {
 			var date = new XDate();
 			return date.toString('dd/MM/yyyy HH:mm:ss');
 		}

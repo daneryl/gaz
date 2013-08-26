@@ -15,19 +15,37 @@ describe('Service: ReportGenerator', function () {
 		expect(!!ReportGenerator).toBe(true);
 	});
 
-	it("should create a report based on a string pattern and array values passed", function(){
+  describe('when modifyng temperature, if the diference on the original is more than 1 degree', function(){
+    it('should return the same temperature', function(){
+      var original_temperature = 40;
+      var current_temperature = 39.5;
+      var modify_by = -1;
+      var modified_temperature = ReportGenerator.modify_temperature(original_temperature, current_temperature, modify_by);
+      expect(modified_temperature).toBe(39.5);
 
-		var pattern = "$index$ test $value$ string";
-		var values = ["value1", "value2"];
+      var modify_by = 5;
+      var modified_temperature = ReportGenerator.modify_temperature(original_temperature, current_temperature, modify_by);
+      expect(modified_temperature).toBe(39.5);
+    });
+  });
 
-		var report = ReportGenerator.generate(pattern, values);
+	it("should create a text report with every value in the array passed and random +- 1degree on temp for each line", function(){
 
-		var results = report.split("\n");
+		var values = ["value1", "value2", "value3", "value4", "value5", "value6"];
+    var temperature = 40;
 
-		expect(results.length).toBe(3);
-		expect(results[0]).toBe("1 test value1 string");
-		expect(results[1]).toBe("2 test value2 string");
+		var report = ReportGenerator.generate(values, temperature);
 
-	});
+    var results = report.split("\n");
+
+    expect(results.length).toBe(7);
+    expect(results[0]).toMatch(/1, value1, 40/);
+    expect(results[1]).toMatch(/2, value2, 39.5|40.5/);
+    expect(results[2]).toMatch(/3, value3, 39.5|39|40|40.5|41/);
+    expect(results[3]).toMatch(/4, value4, 39.5|39|40|40.5|41/);
+    expect(results[4]).toMatch(/5, value5, 39.5|39|40|40.5|41/);
+    expect(results[5]).toMatch(/6, value6, 39.5|39|40|40.5|41/);
+
+  });
 
 });

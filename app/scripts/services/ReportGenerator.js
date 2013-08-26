@@ -1,26 +1,36 @@
 'use strict';
 
 angular.module('gazApp').factory('ReportGenerator', function() {
-  // Service logic
-  // ...
 
-  // Public API here
+  var temperature_interval = 0.5;
+
 	return {
-		generate: function(pattern, values) {
-
+		generate: function(lines, temperature) {
 			var report = '';
 
-			angular.forEach(values, function(value, index){
+      var current_temperature = temperature;
 
-				var line = pattern.replace('$index$', index+1);
-				line = line.replace('$value$', value);
+      var that = this;
 
-				report += line+'\n';
+			angular.forEach(lines, function(value, index){
+        var line_number = index+1;
+				report += line_number+', '+value+', '+current_temperature+'\n';
+
+        var modify_by = Math.random() < 0.5 ? -temperature_interval : temperature_interval;
+        current_temperature = that.modify_temperature(temperature, current_temperature, modify_by);
 
 			});
 
 			return report;
-		}
+		},
+
+    modify_temperature: function(original, current, modify_by) {
+      var new_temperature = current+modify_by;
+      if(Math.abs(original - new_temperature) > 1){
+        return current;
+      }
+      return new_temperature;
+    }
 
 	};
 
