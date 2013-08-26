@@ -18,8 +18,8 @@ angular.module('gazApp').controller('MainCtrl', function($scope, Date, ReportGen
     }
 
 		$scope.log = ReportGenerator.generate(time_logs, $scope.degrees);
-
 	};
 
+  $scope.generate();
 
 });

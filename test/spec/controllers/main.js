@@ -15,16 +15,13 @@ describe('Controller: MainCtrl', function() {
         scope = {};
         Date = {generate_interval:function(){}, now:function(){return "now"}}
         ReportGenerator = {generate:function(){}}
+        spyOn(ReportGenerator, "generate").andCallFake(function(){return "logs"});
         MainCtrl = $controller('MainCtrl', {
             $scope: scope,
             Date: Date,
             ReportGenerator: ReportGenerator
         });
     }));
-
-    it('should attach a log string to scope', function() {
-        expect(scope.log).toBe("");
-    });
 
     it("should attach an initial date to $scope", function(){
         expect(scope.date).toBe("now");
@@ -42,7 +39,6 @@ describe('Controller: MainCtrl', function() {
 
         var mock_interval = "time_interval";
         spyOn(Date, "generate_interval").andCallFake(function(){return mock_interval})
-        spyOn(ReportGenerator, "generate").andCallFake(function(){return "logs"});
         
         scope.date = "date_string";
         scope.degrees = "40.0";
@@ -56,6 +52,10 @@ describe('Controller: MainCtrl', function() {
         expect(scope.log).toBe("logs");
 
     });
+
+    it("should generate log on instance", function() {
+        expect(scope.log).toBe("logs");
+    })
 
     it("should set scope.error if Date generate_interval returns false", function(){
 
