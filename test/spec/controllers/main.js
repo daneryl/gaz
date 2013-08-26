@@ -51,8 +51,7 @@ describe('Controller: MainCtrl', function() {
 
         expect(Date.generate_interval).toHaveBeenCalledWith("date_string");
 
-        var expected_pattern = "$index$, $value$, 40.0";
-        expect(ReportGenerator.generate).toHaveBeenCalledWith(expected_pattern, mock_interval);
+        expect(ReportGenerator.generate).toHaveBeenCalledWith(mock_interval, scope.degrees);
 
         expect(scope.log).toBe("logs");
 

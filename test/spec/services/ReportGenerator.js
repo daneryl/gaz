@@ -32,7 +32,7 @@ describe('Service: ReportGenerator', function () {
 	it("should create a text report with every value in the array passed and random +- 1degree on temp for each line", function(){
 
 		var values = ["value1", "value2", "value3", "value4", "value5", "value6"];
-    var temperature = 40;
+    var temperature = "40";
 
 		var report = ReportGenerator.generate(values, temperature);
 

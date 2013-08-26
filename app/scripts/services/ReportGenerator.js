@@ -7,6 +7,7 @@ angular.module('gazApp').factory('ReportGenerator', function() {
 	return {
 		generate: function(lines, temperature) {
 			var report = '';
+      temperature = parseFloat(temperature);
 
       var current_temperature = temperature;
 
