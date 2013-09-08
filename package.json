@@ -37,6 +37,7 @@
       "test/jasmine.tap_reporter.js",
       "test/example_spec.js",
       "test/runner.js"
-    ]
+    ],
+    "browsers": [ "ie8", "ie9", "ff/13", "chrome/20" ]
   }
 }
