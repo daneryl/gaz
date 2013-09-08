@@ -32,6 +32,11 @@
     "node": ">=0.8.0"
   }
   "testling" : {
-    "scripts": []
+    "scripts": [
+      "test/jasmine.js",
+      "test/jasmine.tap_reporter.js",
+      "test/example_spec.js",
+      "test/runner.js"
+    ]
   }
 }
