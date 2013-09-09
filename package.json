@@ -1,6 +1,10 @@
 {
   "name": "gaz",
   "version": "0.0.0",
+  "repository" : {
+        "type" : "git",
+        "url" : "git://github.com/daneryl/gaz.git"
+    },
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
