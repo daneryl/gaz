@@ -13,7 +13,6 @@ files = [
   'app/components/xdate/src/xdate.js',
   'app/scripts/*.js',
   'app/scripts/**/*.js',
-  'test/mock/**/*.js',
   'test/spec/**/*.js'
 ];
 

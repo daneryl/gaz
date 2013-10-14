@@ -35,19 +35,4 @@
   "engines": {
     "node": ">=0.8.0"
   }
-  "testling" : {
-    "files": [
-      "test/jasmine.js",
-      "test/jasmine.tap_reporter.js",
-      "test/example_spec.js",
-      "test/runner.js"
-    ],
-    "browsers" : {
-        "iexplore" : [ "6.0", "7.0", "8.0", "9.0" ],
-        "chrome" : [ "20.0" ],
-        "firefox" : [ "10.0", "15.0" ],
-        "safari" : [ "5.1" ],
-        "opera" : [ "12.0" ]
-    }
-  }
 }
