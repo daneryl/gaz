@@ -15,7 +15,7 @@ angular.module('gazApp').factory('ReportGenerator', function() {
 
 			angular.forEach(lines, function(value, index){
         var line_number = index+1;
-				report += line_number+', '+value+', '+current_temperature.toFixed(1)+'\n';
+				report += line_number+','+value+','+current_temperature.toFixed(1)+'\n';
 
         var modify_by = Math.random() < 0.5 ? -temperature_interval : temperature_interval;
         current_temperature = that.modify_temperature(temperature, current_temperature, modify_by);

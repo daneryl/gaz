@@ -39,12 +39,12 @@ describe('Service: ReportGenerator', function () {
     var results = report.split("\n");
 
     expect(results.length).toBe(7);
-    expect(results[0]).toMatch(/1, value1, 40.0/);
-    expect(results[1]).toMatch(/2, value2, 39.5|40.5/);
-    expect(results[2]).toMatch(/3, value3, 39.5|39|40.0|40.5|41/);
-    expect(results[3]).toMatch(/4, value4, 39.5|39|40.0|40.5|41/);
-    expect(results[4]).toMatch(/5, value5, 39.5|39|40.0|40.5|41/);
-    expect(results[5]).toMatch(/6, value6, 39.5|39|40.0|40.5|41/);
+    expect(results[0]).toMatch(/1,value1,40.0/);
+    expect(results[1]).toMatch(/2,value2,39.5|40.5/);
+    expect(results[2]).toMatch(/3,value3,39.5|39|40.0|40.5|41/);
+    expect(results[3]).toMatch(/4,value4,39.5|39|40.0|40.5|41/);
+    expect(results[4]).toMatch(/5,value5,39.5|39|40.0|40.5|41/);
+    expect(results[5]).toMatch(/6,value6,39.5|39|40.0|40.5|41/);
 
   });
 
