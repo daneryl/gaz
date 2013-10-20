@@ -29,12 +29,28 @@ describe('Service: ReportGenerator', function () {
     });
   });
 
-	it("should create a text report with every value in the array passed and random +- 1degree on temp for each line", function(){
+  describe('when deactivating random temperature', function(){
+    it('should return same temperature for all entries', function(){
+      var values = ["value1", "value2", "value3", "value4", "value5", "value6"];
+      var temperature = "40";
 
-		var values = ["value1", "value2", "value3", "value4", "value5", "value6"];
+      var report = ReportGenerator.generate(values, temperature);
+
+      var results = report.split("\n");
+
+      expect(results.length).toBe(7);
+      expect(results[0]).toMatch(/1,value1,40.0/);
+      expect(results[1]).toMatch(/2,value2,40.0/);
+      expect(results[2]).toMatch(/3,value3,40.0/);
+    });
+  });
+
+  it("should create a text report with every value in the array passed and random +- 1degree on temp for each line", function(){
+    var values = ["value1", "value2", "value3", "value4", "value5", "value6"];
     var temperature = "40";
 
-		var report = ReportGenerator.generate(values, temperature);
+    var random_temperature = true;
+    var report = ReportGenerator.generate(values, temperature, random_temperature);
 
     var results = report.split("\n");
 
@@ -45,7 +61,6 @@ describe('Service: ReportGenerator', function () {
     expect(results[3]).toMatch(/4,value4,39.5|39|40.0|40.5|41/);
     expect(results[4]).toMatch(/5,value5,39.5|39|40.0|40.5|41/);
     expect(results[5]).toMatch(/6,value6,39.5|39|40.0|40.5|41/);
-
   });
 
 });

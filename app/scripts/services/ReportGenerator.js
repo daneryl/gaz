@@ -2,14 +2,18 @@
 
 angular.module('gazApp').factory('ReportGenerator', function() {
 
-  var temperature_interval = 0.5;
+  var temperature_interval = 0.0;
 
 	return {
-		generate: function(lines, temperature) {
+		generate: function(lines, temperature, random_temperature) {
 			var report = '';
       temperature = parseFloat(temperature);
 
       var current_temperature = temperature;
+
+      if(random_temperature) {
+        temperature_interval = 0.5;
+      }
 
       var that = this;
 
