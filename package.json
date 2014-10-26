@@ -1,11 +1,14 @@
 {
   "name": "gaz",
   "version": "0.0.0",
-  "repository" : {
-        "type" : "git",
-        "url" : "git://github.com/daneryl/gaz.git"
-    },
-  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/daneryl/gaz.git"
+  },
+  "dependencies": {
+    "gzippo": "^0.2.0",
+    "express": "^4.10.0"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
